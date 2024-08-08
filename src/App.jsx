@@ -8,6 +8,7 @@ import WorkspaceLogin from "./Pages/Workspace/WorkspaceLogin";
 import WorkspaceReport from "./Pages/Workspace/WorkspaceReport";
 import WorkspaceUserDetails from "./Pages/Workspace/WorkspaceUserDetails";
 import WorkspaceScaleDetails from "./Pages/Workspace/WorkspaceScaleDetails";
+import ExhibitionPage from "./Pages/Workspace/ExhibitionPage";
 
 const App = () => {
   return (
@@ -36,6 +37,10 @@ const App = () => {
       <Route
         path="/dowelleducation/workspace-scaledetails"
         element={<WorkspaceScaleDetails />}
+      />
+      <Route
+        path="/dowelleducation/workspace-exhibition"
+        element={<ExhibitionPage />}
       />
 
     </Routes>

@@ -7,10 +7,10 @@ const WorkspaceUserDetails = () => {
   const inputRef = useRef(null);
   const [image, setImage] = useState(() => localStorage.getItem("profileImage"));
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(""); // State for success message
-  const [alert, setAlert] = useState(""); // State for form submission message
+  const [message, setMessage] = useState(""); 
+  const [alert, setAlert] = useState(""); 
   const [formData, setFormData] = useState(() => {
-    // Load form data from localStorage if available
+
     const savedData = localStorage.getItem("formData");
     return savedData ? JSON.parse(savedData) : {
       firstName: "Johnathan",
@@ -24,14 +24,14 @@ const WorkspaceUserDetails = () => {
   });
 
   useEffect(() => {
-    // Save the image to localStorage when it changes
+ 
     if (image) {
       localStorage.setItem("profileImage", image);
     }
   }, [image]);
 
   useEffect(() => {
-    // Save form data to localStorage whenever formData changes
+
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData]);
 
@@ -45,8 +45,8 @@ const WorkspaceUserDetails = () => {
       const reader = new FileReader();
       reader.onload = () => {
         setImage(reader.result);
-        setMessage("Image uploaded successfully!"); // Set success message
-        setTimeout(() => setMessage(""), 3000); // Remove message after 3 seconds
+        setMessage("Image uploaded successfully!"); 
+        setTimeout(() => setMessage(""), 3000); 
       };
       reader.readAsDataURL(file);
     }
@@ -63,11 +63,11 @@ const WorkspaceUserDetails = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    // Simulate API call or asynchronous operation
+
     setTimeout(() => {
       setLoading(false);
-      setAlert("Changes saved successfully!"); // Set form submission message
-      setTimeout(() => setAlert(""), 3000); // Remove alert after 3 seconds
+      setAlert("Changes saved successfully!"); 
+      setTimeout(() => setAlert(""), 3000); 
     }, 2000);
   };
 

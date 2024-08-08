@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   const logOut = () => {
-    // Add logout logic here
+
     localStorage.removeItem("accessToken");
     navigate("/dowelleducation/workspace-login");
   }

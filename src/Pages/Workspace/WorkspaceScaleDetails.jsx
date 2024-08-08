@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import QRCodeCard from "../../components/QRCodeCard";
 import { FaCirclePlus } from "react-icons/fa6";
-import Code from "../../assets/Code.png"; // Replace with your actual path
+import Code from "../../assets/Code.png"; 
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "../../utils/tokenUtils";
 
 const WorkspaceScaleDetails = () => {
   const [qrCodes, setQrCodes] = useState([]);
   const [alert, setAlert] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("accessToken");
   const refreshToken = localStorage.getItem("refreshToken");
@@ -25,7 +25,7 @@ const WorkspaceScaleDetails = () => {
       const token = localStorage.getItem("accessToken");
 
       if (token) {
-        setLoading(true); // Set loading to true before fetching
+        setLoading(true); 
 
         try {
           const decodedPayload = decodeToken(token);
@@ -60,13 +60,13 @@ const WorkspaceScaleDetails = () => {
             setAlert("No scale found, please Create a scale for yourself");
             setTimeout(() => setAlert(""), 3000);
 
-            // Hit the API to create a new scale
+
             handleButtonClick();
           }
         } catch (error) {
           console.error("Error fetching scale details:", error.message);
         } finally {
-          setLoading(false); // Set loading to false after fetching or error
+          setLoading(false);
         }
       } else {
         console.error("No access token found in local storage.");
@@ -88,7 +88,7 @@ const WorkspaceScaleDetails = () => {
       portfolio: portfolio,
     };
 
-    setLoading(true); // Set loading to true before creating scale
+    setLoading(true); 
 
     try {
       const response = await fetch(
@@ -119,8 +119,8 @@ const WorkspaceScaleDetails = () => {
         ]);
         setAlert("QR Code card created successfully!");
 
-        // Store the scale_id in localStorage
-        const scaleId = data.scale_id; // Adjust based on actual response
+ 
+        const scaleId = data.scale_id; 
         localStorage.setItem("scale_id", scaleId);
 
         setTimeout(() => setAlert(""), 3000);
@@ -133,7 +133,7 @@ const WorkspaceScaleDetails = () => {
       setAlert("Error creating card.");
       setTimeout(() => setAlert(""), 3000);
     } finally {
-      setLoading(false); // Set loading to false after creating or error
+      setLoading(false); 
     }
   };
 
